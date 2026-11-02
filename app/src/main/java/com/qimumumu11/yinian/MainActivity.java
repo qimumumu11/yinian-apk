@@ -5,21 +5,30 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.webkit.GeolocationPermissions;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import androidx.webkit.WebViewAssetLoader;
+import androidx.webkit.WebViewClientCompat;
+
+/**
+ * 一念 · 离线条
+ * 页面全部打包在 APK 的 assets 里，通过 WebViewAssetLoader 以 https 域名提供给 WebView，
+ * 这样 localStorage / ServiceWorker / 安全上下文都正常，且打开不依赖网络。
+ */
 public class MainActivity extends Activity {
 
-    private static final String HOME = "https://qimumumu11.github.io/yinian/";
+    private static final String HOME = "https://appassets.androidplatform.net/assets/index.html";
     private static final int BAR = 0xFFEEF1F6;
 
     private WebView web;
+    private WebViewAssetLoader loader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +45,10 @@ public class MainActivity extends Activity {
             }
             getWindow().getDecorView().setSystemUiVisibility(f);
         }
+
+        loader = new WebViewAssetLoader.Builder()
+                .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(this))
+                .build();
 
         web = new WebView(this);
         web.setLayoutParams(new ViewGroup.LayoutParams(
@@ -57,21 +70,34 @@ public class MainActivity extends Activity {
         s.setGeolocationEnabled(true);
         s.setUserAgentString(s.getUserAgentString() + " YinianApp/1.0");
 
-        web.setWebViewClient(new WebViewClient() {
+        web.setWebViewClient(new WebViewClientCompat() {
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView v, WebResourceRequest req) {
+                return loader.shouldInterceptRequest(req.getUrl());
+            }
+
             @Override
             public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest req) {
                 String u = req.getUrl().toString();
+                /* 站内（appassets）和外链 http(s) 都在本 WebView 打开 */
                 return !(u.startsWith("http://") || u.startsWith("https://"));
             }
 
             @Override
             public void onReceivedError(WebView v, WebResourceRequest req, WebResourceError err) {
                 if (req.isForMainFrame()) {
-                    Toast.makeText(MainActivity.this, "网络不太好，请稍后重试", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "页面加载失败", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        web.setWebChromeClient(new WebChromeClient());
+
+        web.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback cb) {
+                /* 天气定位：交给页面自行兜底（IP 定位 / 手动选城市） */
+                cb.invoke(origin, true, false);
+            }
+        });
 
         setContentView(web);
 
