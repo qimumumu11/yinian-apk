@@ -14,12 +14,22 @@ android {
         versionName "1.0"
     }
 
+    signingConfigs {
+        release {
+            /* keystore 由 CI 从仓库内 keystore/yinian.b64 还原，签名固定，
+               以后升级可直接覆盖安装，数据不丢 */
+            storeFile file("../release.keystore")
+            storePassword "yinian2026"
+            keyAlias "yinian"
+            keyPassword "yinian2026"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             shrinkResources false
-            /* 用 debug key 签名，保证可以直接安装（不上架商店） */
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 
