@@ -19,13 +19,35 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Ensure signing keystore
+        run: |
+          set -e
+          if [ -f keystore/yinian.b64 ]; then
+            base64 -d keystore/yinian.b64 > release.keystore
+            echo "使用仓库中固定的签名密钥"
+          else
+            mkdir -p keystore
+            keytool -genkeypair -v \
+              -keystore release.keystore \
+              -alias yinian \
+              -keyalg RSA -keysize 2048 -validity 10950 \
+              -storepass yinian2026 -keypass yinian2026 \
+              -dname "CN=Yinian, OU=App, O=Yinian, L=Hangzhou, ST=Zhejiang, C=CN"
+            base64 -w0 release.keystore > keystore/yinian.b64
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add keystore/yinian.b64
+            git commit -m "chore: 固定签名密钥（首次生成）"
+            git push || echo "push skipped"
+            echo "首次生成签名密钥并已提交"
+          fi
+          ls -la release.keystore
+
       - name: Prepare Android SDK
         run: |
           SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
-          echo "Android SDK at: $SDK"
-          ls "$SDK" || true
           SM=$(ls -d "$SDK"/cmdline-tools/*/bin 2>/dev/null | head -1)
-          echo "sdkmanager dir: $SM"
+          echo "sdkmanager: $SM"
           if [ -n "$SM" ]; then
             yes 2>/dev/null | "$SM/sdkmanager" --licenses > /dev/null 2>&1 || true
             "$SM/sdkmanager" "platforms;android-34" "build-tools;34.0.0" "platform-tools" || true
@@ -57,8 +79,9 @@ jobs:
           tag_name: v1.0.${{ github.run_number }}
           name: 一念 v1.0.${{ github.run_number }}
           body: |
-            一念 · 每晚写下明天的事，做完一划。
-            下载 app-release.apk 安装即可（小米需允许「未知来源」）。
+            「一念」· 每晚写下明天的事，做完一划。
+            下载 app-release.apk 安装（小米需允许「未知来源」）。
+            此版本已内置全部页面资源，安装后无需联网即可使用。
           files: app/build/outputs/apk/release/app-release.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
