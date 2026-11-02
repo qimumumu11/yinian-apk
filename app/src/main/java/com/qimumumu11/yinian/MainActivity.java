@@ -7,12 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.GeolocationPermissions;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.Toast;
 
 import androidx.webkit.WebViewAssetLoader;
 import androidx.webkit.WebViewClientCompat;
@@ -81,13 +79,6 @@ public class MainActivity extends Activity {
                 String u = req.getUrl().toString();
                 /* 站内（appassets）和外链 http(s) 都在本 WebView 打开 */
                 return !(u.startsWith("http://") || u.startsWith("https://"));
-            }
-
-            @Override
-            public void onReceivedError(WebView v, WebResourceRequest req, WebResourceError err) {
-                if (req.isForMainFrame()) {
-                    Toast.makeText(MainActivity.this, "页面加载失败", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 
