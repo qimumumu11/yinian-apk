@@ -21,8 +21,19 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Prepare Android SDK
+        run: |
+          SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          echo "Android SDK at: $SDK"
+          ls "$SDK" || true
+          SM=$(ls -d "$SDK"/cmdline-tools/*/bin 2>/dev/null | head -1)
+          echo "sdkmanager dir: $SM"
+          if [ -n "$SM" ]; then
+            yes 2>/dev/null | "$SM/sdkmanager" --licenses > /dev/null 2>&1 || true
+            "$SM/sdkmanager" "platforms;android-34" "build-tools;34.0.0" "platform-tools" || true
+          fi
+          echo "sdk.dir=$SDK" > local.properties
+          echo "ANDROID_HOME=$SDK" >> "$GITHUB_ENV"
 
       - name: Install Gradle
         run: |
@@ -49,7 +60,7 @@ jobs:
           name: 一念 v1.0.${{ github.run_number }}
           body: |
             一念 · 每晚写下明天的事，做完一划。
-            直接下载 app-release.apk 安装即可（小米需允许「未知来源」）。
+            下载 app-release.apk 安装即可（小米需允许「未知来源」）。
           files: app/build/outputs/apk/release/app-release.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
