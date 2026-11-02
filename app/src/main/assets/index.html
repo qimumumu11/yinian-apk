@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover,interactive-widget=resizes-content">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="一念">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<meta name="theme-color" content="#eef1f6">
+<title>一念</title>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#eef1f6; --card:#fff; --line:rgba(23,26,31,.08); --text:#171a1f; --sub:#8b929c; --sub2:#b6bcc6;
+  --accent:#3b6dfb; --accent-soft:#eaf0ff; --ok:#22c55e; --danger:#ff5257;
+  --surface:
+    radial-gradient(115% 78% at 8% 2%, #dbe6ff 0%, rgba(219,230,255,0) 58%),
+    radial-gradient(100% 66% at 96% 16%, #ffe4d2 0%, rgba(255,228,210,0) 60%),
+    radial-gradient(125% 85% at 60% 102%, #dcf2e5 0%, rgba(220,242,229,0) 62%),
+    #eef1f6;
+  --glass:rgba(255,255,255,.46);
+  --glass2:rgba(255,255,255,.58);
+  --glass-line:rgba(255,255,255,.66);
+  --r:16px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0;overflow:hidden;overscroll-behavior:none}
+body{
+  background:var(--bg); color:var(--text);
+  font:400 16px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;   user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;
+  -webkit-text-size-adjust:100%; text-size-adjust:100%;
+}
+#app{position:relative;width:100%;height:100dvh;max-width:520px;margin:0 auto;overflow:hidden;background:var(--surface)}
+.page{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--surface);
+  transition:transform .38s cubic-bezier(.22,.61,.36,1),opacity .28s ease}
+#calPage{transform:translateY(100%);opacity:0;pointer-events:none}
+body.cal #calPage{transform:none;opacity:1;pointer-events:auto}
+body.cal #mainPage{transform:scale(.93) translateY(-14px);opacity:0;pointer-events:none}
+
+/* ---------- 顶部 ---------- */
+.top{flex:none;display:flex;align-items:center;gap:6px;padding:calc(env(safe-area-inset-top) + 14px) 14px 10px}
+.nav{flex:none;width:38px;height:38px;border:0;border-radius:50%;background:transparent;color:var(--sub);
+  font-size:22px;line-height:1;display:grid;place-items:center;cursor:pointer}
+.nav:active{background:#e9ebef}
+.dtitle{flex:1;text-align:center;cursor:pointer}
+.dtitle .d1{font-size:19px;font-weight:500;letter-spacing:.2px}
+.dtitle .d2{font-size:12px;color:var(--sub);margin-top:1px}
+.chip{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:20px;background:var(--accent-soft);
+  color:var(--accent);font-size:11px}
+
+/* ---------- 清单 ---------- */
+.list{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:8px 12px 24px;min-height:0;
+  display:flex;flex-direction:column}
+.list::-webkit-scrollbar{width:0}
+.list.few{justify-content:center}
+.empty{text-align:center;color:#a3aab6;font-size:15px;padding:0;line-height:1.9;letter-spacing:.6px}
+.empty i{font-style:normal;display:inline-block;animation:emptyIn .55s cubic-bezier(.2,.7,.3,1) both}
+@keyframes emptyIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@keyframes enterR{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@keyframes enterT{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.list.enter{animation:enterR .3s cubic-bezier(.22,.61,.36,1)}
+.dtitle.enter{animation:enterT .3s ease}
+.iconbtn.primary{background:var(--accent);color:#fff;border-color:transparent;flex:1;
+  justify-content:center;box-shadow:0 4px 14px rgba(59,109,251,.32)}
+.iconbtn.primary:active{background:#2f5ce0}
+
+.task{position:relative;margin:0 0 13px;border-radius:var(--r);overflow:hidden;background:var(--glass);
+  -webkit-backdrop-filter:blur(18px) saturate(1.7);backdrop-filter:blur(18px) saturate(1.7);
+  box-shadow:0 3px 14px rgba(28,38,72,.07), inset 0 0 0 1px var(--glass-line);
+  touch-action:pan-y}
+.acts{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 22px;
+  pointer-events:none}
+.acts span{font-size:13px;opacity:0;transition:opacity .14s;color:var(--ok)}
+.acts .lock{color:var(--sub2)}
+.task.moving .acts span{opacity:.45}
+.task.over-fin .acts .fin,.task.over-l .acts .act-l{opacity:1}
+.task.done .acts .fin,.task.done .acts .act-l{opacity:0}
+.task.done.moving .acts .lock{opacity:.7}
+.delbtn{flex:none;width:34px;height:34px;margin:-5px 0 0 8px;border:0;border-radius:50%;
+  background:rgba(255,82,87,.14);color:var(--danger);display:grid;place-items:center;cursor:pointer;
+  animation:popin .2s cubic-bezier(.2,1.3,.4,1)}
+.delbtn:active{transform:scale(.9)}
+.delbtn svg{width:15px;height:15px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round}
+.undobtn{flex:none;width:34px;height:34px;margin:-5px 0 0 8px;border:0;border-radius:50%;
+  background:rgba(59,109,251,.14);color:var(--accent);display:grid;place-items:center;cursor:pointer;
+  animation:popin .2s cubic-bezier(.2,1.3,.4,1)}
+.undobtn:active{transform:scale(.9)}
+.undobtn svg{width:17px;height:17px;stroke:currentColor;stroke-width:2;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+@keyframes popin{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+.list.picking .task{opacity:.45;transition:opacity .2s}
+.list.picking .task.picked{opacity:1}
+.row{position:relative;display:flex;align-items:flex-start;gap:12px;padding:19px 17px;background:var(--glass2);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55);will-change:transform}
+.task.done{background:rgba(255,255,255,.26)}
+.task.done .row{background:rgba(255,255,255,.34)}
+/* 弹跳统一走 JS 动画（固定振幅，每一条的手感都一样） */
+/* 已完成被锁定：轻点只会抖动一下，长按才能恢复 */
+@keyframes lockShake{
+  0%,100%{transform:translateX(0)}
+  16%{transform:translateX(-5px)}
+  32%{transform:translateX(4px)}
+  50%{transform:translateX(-3px)}
+  68%{transform:translateX(2px)}
+  86%{transform:translateX(-1px)}
+}
+.task.locked,.ditem.locked{animation:lockShake .34s cubic-bezier(.36,.07,.19,.97)}
+.task.locked .acts .lock{opacity:.85}
+/* 顶到边缘：撞墙那一侧压出内阴影 */
+.task.hit{box-shadow:0 3px 14px rgba(28,38,72,.07), inset 0 0 0 1px var(--glass-line),
+  inset var(--hxs,0px) 0 22px -14px rgba(23,26,31,.42)}
+.row.no-anim{transition:none}
+.dot{flex:none;position:relative;width:20px;height:20px;margin-top:1px;border-radius:50%;border:1.6px solid #d3d8e0;
+  display:grid;place-items:center;transition:background .18s,border-color .18s}
+.dot::after{content:"";width:9px;height:5px;border-left:1.8px solid #fff;border-bottom:1.8px solid #fff;
+  transform:rotate(-45deg) scale(0);transform-origin:center;margin-top:-2px;transition:transform .18s cubic-bezier(.3,1.4,.5,1)}
+.txt{flex:1;position:relative;word-break:break-word;transition:color .22s}
+.txt::after{content:"";position:absolute;left:0;top:52%;height:1.4px;width:100%;background:var(--sub2);
+  transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.task.done .txt{color:var(--sub2)}
+.task.done .txt::after{transform:scaleX(1)}
+.task.undoing{animation:pop .42s cubic-bezier(.25,.9,.35,1)}
+.task.undoing .dot{animation:dotBack .42s cubic-bezier(.25,.9,.35,1)}
+@keyframes dotBack{0%{transform:scale(1.16)}100%{transform:scale(1)}}
+.task.done .dot{background:var(--ok);border-color:var(--ok)}
+.task.done .dot::after{transform:rotate(-45deg) scale(1)}
+/* 完成瞬间的全套反馈：卡片回弹 + 高光扫过 + 圆点弹跳涟漪 + 删除线划过 */
+.task.just .txt::after{animation:strike .38s cubic-bezier(.3,.7,.3,1) forwards}
+@keyframes strike{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.task.just{animation:pop .42s cubic-bezier(.25,.9,.35,1)}
+@keyframes pop{0%{transform:scale(1)}32%{transform:scale(.965)}64%{transform:scale(1.014)}100%{transform:scale(1)}}
+.task.just .row{animation:doneNudge .46s cubic-bezier(.25,.85,.35,1)}
+@keyframes doneNudge{
+  0%{transform:translateX(var(--nx,0px))}
+  44%{transform:translateX(calc(var(--nx,0px) * -0.15))}
+  74%{transform:translateX(calc(var(--nx,0px) * 0.06))}
+  100%{transform:translateX(0)}
+}
+.row::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:linear-gradient(100deg,transparent 32%,rgba(255,255,255,.9) 50%,transparent 68%)}
+.task.just .row::after{animation:sweep .58s ease-out}
+@keyframes sweep{
+  0%{transform:translateX(-115%);opacity:.95}
+  100%{transform:translateX(115%);opacity:0}
+}
+.task.just .dot{animation:dotPop .5s cubic-bezier(.2,1.5,.4,1)}
+@keyframes dotPop{0%{transform:scale(.72)}45%{transform:scale(1.22)}100%{transform:scale(1)}}
+.dot::before{content:"";position:absolute;inset:-5px;border-radius:50%;
+  border:2px solid var(--ok);opacity:0;transform:scale(.5)}
+.task.just .dot::before{animation:ripple .55s ease-out}
+@keyframes ripple{0%{opacity:.6;transform:scale(.5)}100%{opacity:0;transform:scale(2.2)}}
+
+/* ---------- 底部栏 ---------- */
+.bar{flex:none;display:flex;gap:9px;align-items:center;padding:10px 12px calc(env(safe-area-inset-bottom) + 12px);
+  border-top:1px solid var(--line);background:rgba(255,255,255,.52);
+  -webkit-backdrop-filter:blur(22px) saturate(1.6);backdrop-filter:blur(22px) saturate(1.6)}
+.iconbtn{flex:none;height:46px;min-width:52px;border:1px solid var(--glass-line);border-radius:23px;
+  background:var(--glass2);color:var(--text);font-size:13px;display:flex;align-items:center;gap:5px;
+  padding:0 14px;cursor:pointer}
+.iconbtn:active{background:rgba(255,255,255,.85)}
+.iconbtn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.iconbtn.compact{padding:0 12px;font-size:12px;gap:4px}
+.iconbtn.compact svg{width:16px;height:16px}
+
+/* 底部栏图标按钮 */
+.iconbtn.icon-only{width:46px;min-width:46px;height:46px;padding:0;justify-content:center;position:relative;
+  transition:background .2s,color .2s,border-color .2s}
+.iconbtn.icon-only svg{width:21px;height:21px}
+.iconbtn.icon-only:active{transform:scale(.93)}
+.iconbtn.on{background:var(--accent);border-color:transparent;color:#fff;
+  box-shadow:0 4px 14px rgba(59,109,251,.35)}
+.badge{position:absolute;top:-4px;right:-5px;display:none;min-width:18px;height:18px;padding:0 5px;
+  border-radius:9px;background:#f0f2f6;color:#6b7280;font-size:11px;line-height:18px;text-align:center;
+  font-variant-numeric:tabular-nums;box-shadow:0 1px 4px rgba(28,38,72,.18);border:1.5px solid #fff}
+.badge.show{display:block}
+.badge.f{background:#1fb955;color:#fff;border-color:#fff}
+.iconbtn.on .badge,.iconbtn.on .badge.f{background:#fff;color:var(--accent)}
+.toast{position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom) + 78px);z-index:30;
+  transform:translate(-50%,10px);background:rgba(23,26,31,.9);color:#fff;font-size:13px;padding:8px 15px;
+  border-radius:19px;white-space:nowrap;opacity:0;pointer-events:none;
+  transition:opacity .2s ease,transform .2s cubic-bezier(.2,.8,.3,1)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.wx{display:inline-block;margin-left:5px;color:#7b8492;cursor:pointer}
+.wx.set{color:var(--accent)}
+@keyframes shred{0%{opacity:1;transform:scale(1) skewX(0)}
+  35%{opacity:.85;transform:scale(.99) skewX(-2deg)}
+  100%{opacity:0;transform:scale(.93) translateY(8px)}}
+.task.shred{animation:shred .17s ease-in forwards;pointer-events:none}
+#fx{position:absolute;inset:0;z-index:40;pointer-events:none;overflow:hidden}
+.frag{position:absolute;border-radius:1px;background:#fff;
+  box-shadow:0 1px 2px rgba(28,38,72,.12);will-change:transform,opacity}
+.sheet{position:absolute;inset:0;z-index:50;background:rgba(20,24,34,.3);
+  display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .22s}
+.sheet.show{opacity:1;pointer-events:auto}
+.sheet-box{width:100%;max-height:76%;overflow-y:auto;background:rgba(255,255,255,.9);
+  -webkit-backdrop-filter:blur(26px) saturate(1.6);backdrop-filter:blur(26px) saturate(1.6);
+  border-radius:20px 20px 0 0;padding:14px 16px calc(env(safe-area-inset-bottom) + 18px);
+  transform:translateY(100%);transition:transform .3s cubic-bezier(.22,.61,.36,1);
+  box-shadow:0 -6px 30px rgba(28,38,72,.2)}
+.sheet.show .sheet-box{transform:none}
+.sheet-h{display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:500;
+  margin-bottom:12px}
+.sheet-h span{font-size:13px;font-weight:400;color:var(--accent);cursor:pointer}
+.sheet-h b{font-weight:500;font-size:15px;color:var(--text)}
+.sheet-in{width:100%;height:44px;border:1px solid var(--glass-line);border-radius:22px;
+  background:rgba(255,255,255,.72);padding:0 16px;font-size:16px;outline:0;color:var(--text);
+  user-select:text;-webkit-user-select:text}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips b{font-weight:400;font-size:13px;padding:8px 13px;border-radius:18px;
+  background:rgba(255,255,255,.78);border:1px solid var(--glass-line);color:var(--text);cursor:pointer}
+.chips b:active{background:#e9edf3}
+.chips b.geo{color:var(--accent)}
+.add{flex:1;display:flex;align-items:center;background:var(--glass2);border:1px solid var(--glass-line);
+  border-radius:23px;padding:0 6px 0 18px;height:46px;min-width:0}
+.add input{flex:1;border:0;outline:0;background:transparent;font-size:16px;color:var(--text);height:100%;
+  user-select:text;-webkit-user-select:text;min-width:0}
+.add input::placeholder{color:#a8aeb8}
+.add button{flex:none;width:34px;height:34px;border:0;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:22px;line-height:1;display:grid;place-items:center;cursor:pointer}
+.add button:active{transform:scale(.92)}
+
+/* ---------- 日历 ---------- */
+.mstat{flex:none;text-align:center;font-size:12px;color:var(--sub);padding-bottom:8px}
+.week{flex:none;display:grid;grid-template-columns:repeat(7,1fr);padding:0 10px 4px}
+.week div{text-align:center;font-size:11px;color:var(--sub2)}
+.grid{flex:none;display:grid;grid-template-columns:repeat(7,1fr);gap:2px 0;padding:0 10px}
+.cell{position:relative;height:46px;border:0;background:transparent;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:3px;cursor:pointer;padding:0}
+.cell .n{font-size:15px;font-variant-numeric:tabular-nums;color:var(--text);width:30px;height:30px;
+  display:grid;place-items:center;border-radius:50%}
+.cell.out .n{color:var(--sub2)}
+.cell.today .n{color:var(--accent);font-weight:500}
+.cell.sel .n{background:var(--accent);color:#fff;font-weight:500}
+.cell.has.notdone .n{box-shadow:inset 0 0 0 1.4px #ffd9da}
+.cell.sel.has .n{box-shadow:none}
+.cell i{width:5px;height:5px;border-radius:50%;background:var(--sub2)}
+.cell i.p{background:#f0a54a}
+.cell i.f{background:var(--ok)}
+.cell.sel i{background:#fff;opacity:.9}
+.detail{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px 20px;min-height:0}
+.detail::-webkit-scrollbar{width:0}
+.dhead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+.dhead h3{margin:0;font-size:15px;font-weight:500}
+.dhead span{font-size:12px;color:var(--sub)}
+.ditem{display:flex;gap:9px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.ditem:last-child{border-bottom:0}
+.ditem b{flex:none;width:16px;height:16px;margin-top:3px;border-radius:50%;border:1.4px solid #d3d8e0}
+.ditem.f b{background:var(--ok);border-color:var(--ok)}
+.ditem.f span{color:var(--sub2);text-decoration:line-through}
+.dempty{color:var(--sub2);font-size:13px;padding:18px 0;text-align:center}
+
+/* 大屏适配（6.9 英寸，如小米 17 Pro Max：461×1003 CSS px） */
+@media (min-width:440px){
+  .txt{font-size:17px}
+  .row{padding:21px 18px}
+  .dtitle .d1{font-size:21px}
+  .dtitle .d2{font-size:12.5px}
+  .cell{height:52px}
+  .ditem{font-size:16px}
+  .empty{font-size:16px}
+  .add input{font-size:17px}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ 主界面 ============ -->
+  <section class="page" id="mainPage">
+    <header class="top">
+      <button class="nav" id="prevDay" aria-label="前一天">‹</button>
+      <div class="dtitle" id="title"></div>
+      <button class="nav" id="nextDay" aria-label="后一天">›</button>
+    </header>
+
+    <div class="list" id="list"></div>
+
+    <footer class="bar">
+      <button class="iconbtn icon-only" id="openCal" aria-label="日历">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3.2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      </button>
+      <form class="add" id="addForm">
+        <input id="inp" placeholder="添加事项…" autocomplete="off" enterkeyhint="done">
+        <button type="submit" aria-label="添加">+</button>
+      </form>
+      <button class="iconbtn icon-only" id="tmrBtn" aria-label="下一天">
+        <svg viewBox="0 0 24 24"><rect x="2.6" y="6.2" width="12.6" height="12.8" rx="3.2"/><path d="M2.6 10.7h12.6M6.2 3.6v3.4M11.6 3.6v3.4"/><path d="M16.6 12h4.6M18.8 9.9l2.5 2.1-2.5 2.1"/></svg>
+        <span class="badge" id="tmrBadge"></span>
+      </button>
+    </footer>
+  </section>
+
+  <!-- ============ 日历 ============ -->
+  <section class="page" id="calPage">
+    <header class="top">
+      <button class="nav" id="calPrev" aria-label="上个月">‹</button>
+      <div class="dtitle"><div class="d1" id="calTitle"></div></div>
+      <button class="nav" id="calNext" aria-label="下个月">›</button>
+    </header>
+    <div class="mstat" id="mstat"></div>
+    <div class="week"><div>日</div><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div></div>
+    <div class="grid" id="grid"></div>
+    <div class="detail" id="detail"></div>
+    <footer class="bar">
+      <button class="iconbtn" id="backBtn">‹ 返回</button>
+      <button class="iconbtn primary" id="writeDay">写这一天</button>
+    </footer>
+  </section>
+
+  <div class="toast" id="toast"></div>
+  <div id="fx"></div>
+
+  <!-- 城市选择 -->
+  <div class="sheet" id="citySheet">
+    <div class="sheet-box">
+      <div class="sheet-h"><b id="cityTitle">选择城市</b><span id="cityClose">完成</span></div>
+      <input class="sheet-in" id="cityInput" placeholder="搜索城市，如 杭州" autocomplete="off">
+      <div class="chips" id="cityList"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var KEY = "planner.v1";
+var WD = ["周日","周一","周二","周三","周四","周五","周六"];
+
+/* ---------- 数据 ---------- */
+var data = {};
+try { data = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ data = {}; }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(data)); }catch(e){} }
+function list(d){ return Array.isArray(data[d]) ? data[d] : []; }
+
+/* ---------- 日期 ---------- */
+function key(d){
+  return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+}
+function toDate(k){ var p = k.split("-"); return new Date(+p[0], +p[1]-1, +p[2]); }
+function shift(k, n){ var d = toDate(k); d.setDate(d.getDate()+n); return key(d); }
+function today(){ return key(new Date()); }
+function rel(k){
+  var t = today();
+  if(k === t) return "今天";
+  if(k === shift(t,-1)) return "昨天";
+  if(k === shift(t,1)) return "明天";
+  return "";
+}
+function label(k){ var d = toDate(k); return (d.getMonth()+1) + "月" + d.getDate() + "日"; }
+function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+
+/* ---------- 音效 + 震动 ---------- */
+var AC = null, canVibe = typeof navigator.vibrate === "function";
+function ac(){
+  try{
+    if(!AC) AC = new (window.AudioContext || window.webkitAudioContext)();
+    if(AC.state === "suspended") AC.resume();
+    return AC;
+  }catch(e){ return null; }
+}
+function tick(){
+  var c = ac(); if(!c) return;
+  var t = c.currentTime, o = c.createOscillator(), g = c.createGain();
+  o.type = "square"; o.frequency.value = 1500;
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(0.05, t + 0.004);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + 0.03);
+  o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + 0.04);
+}
+function buzz(ms){
+  if(canVibe){ try{ navigator.vibrate(ms); }catch(e){} return; }
+  tick();
+}
+/* 水滴音：清脆上滑 + 一点点回声 */
+function drop(){
+  var c = ac(); if(!c) return;
+  var t = c.currentTime;
+  var dly = c.createDelay(0.6), fb = c.createGain(), wet = c.createGain();
+  dly.delayTime.value = 0.082; fb.gain.value = 0.2; wet.gain.value = 0.15;
+  dly.connect(fb); fb.connect(dly); dly.connect(wet); wet.connect(c.destination);
+  function voice(delay, vol, f0, f1){
+    var s = t + delay;
+    var o = c.createOscillator(), g = c.createGain(), lp = c.createBiquadFilter();
+    o.type = "sine";
+    o.frequency.setValueAtTime(f0, s);
+    o.frequency.exponentialRampToValueAtTime(f1, s + 0.062);
+    lp.type = "lowpass"; lp.frequency.value = 3400;
+    g.gain.setValueAtTime(0.0001, s);
+    g.gain.exponentialRampToValueAtTime(vol, s + 0.006);
+    g.gain.exponentialRampToValueAtTime(0.0001, s + 0.25);
+    o.connect(lp); lp.connect(g); g.connect(c.destination); g.connect(dly);
+    o.start(s); o.stop(s + 0.28);
+  }
+  voice(0, 0.24, 620, 1580);
+  voice(0.014, 0.07, 1600, 2400);
+}
+/* 恢复为未完成：短促下行"咻" */
+function undo(){
+  var c = ac(); if(!c) return;
+  var t = c.currentTime;
+  var o = c.createOscillator(), g = c.createGain(), lp = c.createBiquadFilter();
+  o.type = "sine";
+  o.frequency.setValueAtTime(760, t);
+  o.frequency.exponentialRampToValueAtTime(380, t + 0.17);
+  lp.type = "lowpass"; lp.frequency.value = 2600;
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(0.13, t + 0.008);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + 0.2);
+  o.connect(lp); lp.connect(g); g.connect(c.destination);
+  o.start(t); o.stop(t + 0.22);
+}
+/* 划掉一件事：明亮上行"叮" + 一道划过的沙沙声 */
+function chime(){
+  var c = ac(); if(!c) return;
+  var t = c.currentTime;
+  [[0, 900, 1350, 0.15], [0.06, 1350, 1800, 0.06]].forEach(function(a){
+    var o = c.createOscillator(), g = c.createGain();
+    o.type = "sine";
+    o.frequency.setValueAtTime(a[1], t + a[0]);
+    o.frequency.exponentialRampToValueAtTime(a[2], t + a[0] + 0.09);
+    g.gain.setValueAtTime(0.0001, t + a[0]);
+    g.gain.exponentialRampToValueAtTime(a[3], t + a[0] + 0.008);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + a[0] + 0.32);
+    o.connect(g); g.connect(c.destination);
+    o.start(t + a[0]); o.stop(t + a[0] + 0.34);
+  });
+  var len = Math.floor(c.sampleRate * 0.13);
+  var buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
+  for(var i=0;i<len;i++){ var p = i / len; d[i] = (Math.random() * 2 - 1) * Math.pow(1 - p, 1.5); }
+  var src = c.createBufferSource(); src.buffer = buf;
+  var hp = c.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 2400;
+  var g2 = c.createGain();
+  g2.gain.setValueAtTime(0.05, t);
+  g2.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+  src.connect(hp); hp.connect(g2); g2.connect(c.destination);
+  src.start(t);
+}
+/* 翻到后一天：清脆上扬双音 */
+function flip(){
+  var c = ac(); if(!c) return;
+  var t = c.currentTime;
+  [[0, 500, 760], [0.065, 780, 1120]].forEach(function(v){
+    var o = c.createOscillator(), g = c.createGain();
+    o.type = "triangle";
+    o.frequency.setValueAtTime(v[1], t + v[0]);
+    o.frequency.exponentialRampToValueAtTime(v[2], t + v[0] + 0.07);
+    g.gain.setValueAtTime(0.0001, t + v[0]);
+    g.gain.exponentialRampToValueAtTime(0.11, t + v[0] + 0.008);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + v[0] + 0.15);
+    o.connect(g); g.connect(c.destination);
+    o.start(t + v[0]); o.stop(t + v[0] + 0.17);
+  });
+}
+/* 撞墙闷响 / 锁定提示（音量可调） */
+function thud(vol){
+  var c = ac(); if(!c) return;
+  var t = c.currentTime;
+  var o = c.createOscillator(), g = c.createGain(), lp = c.createBiquadFilter();
+  o.type = "triangle";
+  o.frequency.setValueAtTime(200, t);
+  o.frequency.exponentialRampToValueAtTime(70, t + 0.14);
+  lp.type = "lowpass"; lp.frequency.value = 720;
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(vol || 0.15, t + 0.008);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
+  o.connect(lp); lp.connect(g); g.connect(c.destination);
+  o.start(t); o.stop(t + 0.2);
+}
+document.addEventListener("pointerdown", function once(){
+  ac();
+  if(canVibe){ try{ navigator.vibrate(1); }catch(e){} }
+  document.removeEventListener("pointerdown", once);
+}, {passive:true});
+
+/* ---------- 状态 ---------- */
+var S = { date: today(), sel: today(), month: today().slice(0,7), justId: null, justX: 0, undoId: null, pickId: null };
+
+var $ = function(id){ return document.getElementById(id); };
+var esc = function(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); };
+
+/* ---------- 主界面渲染 ---------- */
+function renderTitle(){
+  var r = rel(S.date), w = WD[toDate(S.date).getDay()];
+  var chip = r === "今天" ? "" : '<span class="chip" id="todayChip">回今天</span>';
+  var wx = weatherText(S.date);
+  $("title").innerHTML = '<div class="d1">' + label(S.date) + '</div><div class="d2">' + w +
+    (r ? " · " + r : "") + (wx ? ' <span class="wx" id="wxBtn">' + wx + '</span>'
+                          : ' <span class="wx set" id="wxBtn">设置城市</span>') + chip + '</div>';
+  var tc = $("todayChip");
+  if(tc) tc.onclick = function(){ S.date = today(); render(); };
+  var wb = $("wxBtn");
+  if(wb) wb.onclick = function(e){ e.stopPropagation(); openCity(); };
+}
+
+function emptyText(){
+  return S.date === today() ? "你今天还未设置日程哦"
+    : (S.date === tmKey() ? "你明天还未设置日程哦" : "这一天还未设置日程哦");
+}
+function emptyHtml(){
+  var t = emptyText(), s = "";
+  for(var i=0;i<t.length;i++) s += "<i>" + t.charAt(i) + "</i>";
+  return '<div class="empty">' + s + "</div>";
+}
+/* 写上第一条时，这句话逐字向上飘散、模糊消失 */
+function fadeOutEmpty(box){
+  var old = box.querySelector(".empty"), host = $("fx");
+  if(!old || !host || !old.animate) return;
+  var r = old.getBoundingClientRect(), hr = host.getBoundingClientRect();
+  var clone = old.cloneNode(true);
+  clone.style.cssText = "position:absolute;margin:0;width:" + r.width + "px;left:" +
+    (r.left - hr.left) + "px;top:" + (r.top - hr.top) + "px";
+  host.appendChild(clone);
+  var d = 0;
+  Array.prototype.forEach.call(clone.querySelectorAll("i"), function(el){
+    el.style.animation = "none";
+    el.animate([
+      { opacity: 1, transform: "translateY(0) scale(1)", filter: "blur(0px)" },
+      { opacity: 0, transform: "translateY(-12px) scale(.94)", filter: "blur(3px)" }
+    ], { duration: 380, delay: d, easing: "cubic-bezier(.3,.7,.3,1)", fill: "forwards" });
+    d += 20;
+  });
+  setTimeout(function(){ if(clone.parentNode) clone.parentNode.removeChild(clone); }, d + 520);
+}
+
+function renderList(){
+  var items = list(S.date), box = $("list");
+  if(items.length && box.querySelector(".empty")) fadeOutEmpty(box);
+  box.classList.toggle("picking", !!S.pickId);
+  if(!items.length){
+    box.innerHTML = emptyHtml();
+    box.classList.add("few");
+    return;
+  }
+  var undone = [], done = [];
+  items.forEach(function(it){ (it.done ? done : undone).push(it); });
+  var html = "";
+  undone.concat(done).forEach(function(it){
+    var pick = S.pickId === it.id, just = S.justId === it.id, undoing = S.undoId === it.id;
+    html += '<div class="task' + (it.done ? " done" : "") + (just ? " just" : "") +
+      (undoing ? " undoing" : "") + (pick ? " picked" : "") + '"' +
+      (just ? ' style="--nx:' + S.justX + 'px"' : "") + ' data-id="' + it.id + '">' +
+      '<div class="acts"><span class="act-l">完成</span><span class="lock">已完成</span><span class="fin">完成</span></div>' +
+      '<div class="row"><span class="dot"></span><span class="txt">' + esc(it.text) + '</span>' +
+      (pick && it.done ? '<button class="undobtn" data-id="' + it.id + '" aria-label="恢复为未完成">' +
+        '<svg viewBox="0 0 24 24"><path d="M4.5 9.5h8.6a5.4 5.4 0 1 1 0 10.8H8"/>' +
+        '<path d="M8.2 5.2L4.2 9.4l4 4.2"/></svg></button>' : '') +
+      (pick ? '<button class="delbtn" data-id="' + it.id + '" aria-label="删除">' +
+        '<svg viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>' : '') +
+      '</div></div>';
+  });
+  box.innerHTML = html;
+  S.justId = null; S.justX = 0; S.undoId = null;
+  box.classList.toggle("few", box.scrollHeight < box.clientHeight - 24);
+}
+
+function tmKey(){ return shift(today(), 1); }
+/* 每点一次「下一天」按钮，就往后推一天 */
+function nextDayKey(){
+  var tk = tmKey();
+  return S.date < tk ? tk : shift(S.date, 1);
+}
+function dayLabel(k){ return label(k) + " · " + (rel(k) || WD[toDate(k).getDay()]); }
+
+function renderBar(){
+  var nk = nextDayKey(), items = list(nk), doneN = 0;
+  items.forEach(function(it){ if(it.done) doneN++; });
+  $("tmrBtn").classList.toggle("on", S.date > today());
+  var b = $("tmrBadge");
+  if(items.length){
+    b.textContent = items.length;
+    b.className = "badge show" + (doneN === items.length ? " f" : "");
+  } else {
+    b.className = "badge";
+  }
+  $("inp").placeholder = S.date === today() ? "添加事项…" : "添加到 " + label(S.date) + "…";
+}
+
+var toastT = null;
+function toast(msg){
+  var el = $("toast");
+  el.textContent = msg; el.classList.add("show");
+  clearTimeout(toastT);
+  toastT = setTimeout(function(){ el.classList.remove("show"); }, 1700);
+}
+
+function render(){ renderTitle(); renderList(); renderBar(); }
+
+/* ---------- 操作 ---------- */
+function addTask(text){
+  text = text.trim();
+  if(!text) return;
+  if(!data[S.date]) data[S.date] = [];
+  data[S.date].push({ id: uid(), text: text, done: false });
+  save(); render();
+  var l = $("list"); l.scrollTop = l.scrollHeight;
+}
+function setDone(id, val, nx){
+  var items = list(S.date);
+  for(var i=0;i<items.length;i++){
+    if(items[i].id === id){
+      if(items[i].done === val) return;
+      items[i].done = val;
+      if(val){
+        items[i].doneAt = Date.now();
+        S.justId = id; S.justX = nx || 0;
+        chime(); buzz([12,40,24]);        /* 叮 + 哒-哒 两下震动 */
+      } else {
+        S.undoId = id;
+        undo(); buzz(12);
+      }
+      break;
+    }
+  }
+  save(); render();
+}
+function removeTask(id){
+  var items = list(S.date);
+  data[S.date] = items.filter(function(it){ return it.id !== id; });
+  save(); render();
+}
+
+/* ---------- 手势：左右滑都是完成 / 长按才删除 ---------- */
+var TH = 72, g = null;
+var listEl = $("list");
+
+function setX(row, x){ row.style.transform = x ? "translateX(" + x + "px)" : ""; }
+function killTimer(){ if(g && g.timer){ clearTimeout(g.timer); g.timer = null; } }
+
+listEl.addEventListener("pointerdown", function(e){
+  if(e.button) return;
+  if(e.target.closest && e.target.closest(".delbtn, .undobtn")) return;
+  var li = e.target.closest ? e.target.closest(".task") : null;
+  if(!li) return;
+  /* 先彻底收掉上一条的弹跳残留，保证每一条起步状态都一样 */
+  clearBump();
+  g = { li: li, id: li.dataset.id, row: li.querySelector(".row"),
+        x0: e.clientX, y0: e.clientY, dir: null, moved: false, lp: false, hit: false,
+        t: Date.now(), timer: setTimeout(longPress, 470) };
+  g.row.style.transition = "none";   /* 清掉上一次回位残留的过渡，这一拖完全跟手 */
+});
+
+/* 长按 → 弹出红色删除按钮 */
+function longPress(){
+  if(!g || g.dir || g.moved) return;
+  g.lp = true;
+  S.pickId = g.id;
+  buzz(26);
+  g = null;
+  render();
+}
+
+listEl.addEventListener("pointermove", function(e){
+  if(!g) return;
+  var dx = e.clientX - g.x0, dy = e.clientY - g.y0;
+  if(Math.abs(dx) > 7 || Math.abs(dy) > 7) killTimer();
+  if(!g.dir){
+    if(Math.abs(dx) < 7 && Math.abs(dy) < 7) return;
+    g.dir = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+    if(g.dir === "x"){ try{ g.li.setPointerCapture(e.pointerId); }catch(err){} }
+    else { g = null; return; }
+  }
+  g.moved = true;
+  var isDone = g.li.classList.contains("done"), v, lim = 170;
+  if(isDone){
+    /* 已完成：橡皮筋阻尼，越拖越拉不动，最后顶死在边缘 */
+    var s = dx < 0 ? -1 : 1;
+    v = s * lim * Math.abs(dx) / (Math.abs(dx) + lim * 0.6);   /* 前半段基本跟手，越到后面越拉不动 */
+    var atWall = Math.abs(v) > 120;
+    g.li.classList.toggle("hit", atWall);
+    g.li.style.setProperty("--hxs", s > 0 ? "16px" : "-16px");
+    if(atWall && !g.hit){ g.hit = true; buzz(9); }        /* 手指顶到墙：轻震一下 */
+    if(!atWall) g.hit = false;
+  } else {
+    v = Math.max(-lim, Math.min(lim, dx));
+  }
+  setX(g.row, v);
+  g.li.classList.add("moving");
+  g.li.classList.toggle("over-fin", !isDone && v <= -TH);
+  g.li.classList.toggle("over-l", !isDone && v >= TH);
+  if(e.cancelable) e.preventDefault();
+});
+
+/* 已完成的事项被锁住：抖一下 + 闷响 + 显示"已完成" */
+function lockTap(el){
+  if(!el) return;
+  el.classList.remove("locked"); void el.offsetWidth;
+  el.classList.add("locked");
+  buzz(12); thud(0.07);
+  setTimeout(function(){ el.classList.remove("locked"); }, 700);
+}
+
+/* 已完成的事项撞到边缘弹回：压扁 → 撞墙闷响 → 固定振幅来回震荡归位 */
+var lastAnim = null, lastRow = null, lastLi = null;
+function clearBump(){
+  if(lastAnim){ try{ lastAnim.cancel(); }catch(e){} lastAnim = null; }
+  if(lastRow){ lastRow.style.transform = ""; lastRow.style.transition = ""; lastRow = null; }
+  if(lastLi){ lastLi.classList.remove("hit"); lastLi.style.removeProperty("--hxs"); lastLi = null; }
+}
+function bump(li, row, x){
+  clearBump();
+  var s = x < 0 ? -1 : 1;
+  var bx = s * Math.max(Math.abs(x), 100);      /* 起跳位置有下限，拖得再短也弹得有力 */
+  row.style.transition = "none";
+  row.style.transform = "translateX(" + bx + "px)";
+  li.classList.add("hit");
+  li.style.setProperty("--hxs", s > 0 ? "16px" : "-16px");
+
+  /* 固定振幅：不管拖了多远，弹出去的弧度都一样 */
+  var kf = [
+    { transform: "translateX(" + bx + "px) scaleX(.965)" },
+    { transform: "translateX(" + (s * -26) + "px) scaleX(1.012)", offset: 0.22 },
+    { transform: "translateX(" + (s * 9) + "px) scaleX(.998)",    offset: 0.50 },
+    { transform: "translateX(" + (s * -3) + "px)",                 offset: 0.75 },
+    { transform: "translateX(0) scaleX(1)" }
+  ];
+  var done = function(){
+    row.style.transition = "";
+    row.style.transform = "";
+    li.classList.remove("hit");
+    li.style.removeProperty("--hxs");
+    if(lastRow === row){ lastAnim = null; lastRow = null; lastLi = null; }
+  };
+  if(row.animate){
+    lastAnim = row.animate(kf, { duration: 380, easing: "cubic-bezier(.22,.9,.3,1)", fill: "forwards" });
+    lastRow = row; lastLi = li;
+    lastAnim.onfinish = function(){ try{ lastAnim.cancel(); }catch(e){} done(); };
+    lastAnim.oncancel = function(){};
+  } else {
+    row.style.transition = "transform .3s cubic-bezier(.22,.9,.3,1)";
+    row.style.transform = "translateX(0)";
+    setTimeout(done, 320);
+  }
+  buzz([14,22,12]); thud();
+  setTimeout(function(){ li.classList.remove("hit"); }, 170);
+}
+
+function endGesture(){
+  if(!g) return;
+  var cur = g;
+  killTimer();
+  var wasDone = cur.li.classList.contains("done");
+  cur.li.classList.remove("over-fin","over-l","moving");
+  if(cur.dir === "x"){
+    var m = /translateX\((-?[\d.]+)px\)/.exec(cur.row.style.transform || "");
+    var dx = m ? parseFloat(m[1]) : 0;
+    if(wasDone && Math.abs(dx) >= TH){ bump(cur.li, cur.row, dx); }
+    else if(Math.abs(dx) >= TH){ setDone(cur.id, true, dx); }   /* 音效+震动+动效都在 setDone 里 */
+    else {
+      cur.li.classList.remove("hit"); cur.li.style.removeProperty("--hxs");
+      cur.row.style.transition = "transform .2s cubic-bezier(.2,.8,.3,1)"; setX(cur.row, 0);
+      setTimeout(function(){ if(cur.row) cur.row.style.transition = ""; }, 220);
+    }
+  } else if(!cur.moved && Date.now() - cur.t < 500){
+    if(S.pickId){ S.pickId = null; render(); g = null; return; }
+    var it = findItem(cur.id);
+    if(!it){ g = null; return; }
+    if(it.done){ lockTap(cur.li); }          /* 已完成：锁住，只能长按恢复 */
+    else { setDone(cur.id, true, 0); }       /* 未完成：轻点即可划掉 */
+  }
+  g = null;
+}
+listEl.addEventListener("pointerup", endGesture);
+listEl.addEventListener("pointercancel", function(){
+  if(!g) return;
+  killTimer();
+  g.li.classList.remove("over-fin","over-l","moving","hit");
+  g.li.style.removeProperty("--hxs"); setX(g.row, 0); g = null;
+});
+
+/* 点红色删除按钮 → 碎纸机纸屑；点蓝色按钮 → 恢复为未完成 */
+listEl.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+listEl.addEventListener("click", function(e){
+  var u = e.target.closest ? e.target.closest(".undobtn") : null;
+  if(u){ S.pickId = null; setDone(u.dataset.id, false); return; }
+  var b = e.target.closest ? e.target.closest(".delbtn") : null;
+  if(!b) return;
+  shred(b.closest(".task"), b.dataset.id);
+});
+
+function findItem(id){
+  var items = list(S.date);
+  for(var i=0;i<items.length;i++) if(items[i].id === id) return items[i];
+  return null;
+}
+
+/* ---------- 删除特效：碎纸机 ---------- */
+function trash(){
+  var c = ac(); if(!c) return;
+  var t = c.currentTime;
+  var len = Math.floor(c.sampleRate * 0.5);
+  var buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
+  for(var i=0;i<len;i++){
+    var p = i / len;
+    d[i] = (Math.random() * 2 - 1) * Math.pow(1 - p, 2);
+  }
+  var src = c.createBufferSource(); src.buffer = buf;
+  var bp = c.createBiquadFilter(); bp.type = "bandpass"; bp.Q.value = 1.1;
+  bp.frequency.setValueAtTime(2800, t);
+  bp.frequency.exponentialRampToValueAtTime(520, t + 0.42);
+  var gn = c.createGain();
+  gn.gain.setValueAtTime(0.17, t);
+  gn.gain.exponentialRampToValueAtTime(0.0001, t + 0.5);
+  src.connect(bp); bp.connect(gn); gn.connect(c.destination);
+  src.start(t);
+  var o = c.createOscillator(), og = c.createGain();
+  o.type = "square";
+  o.frequency.setValueAtTime(170, t);
+  o.frequency.exponentialRampToValueAtTime(88, t + 0.1);
+  og.gain.setValueAtTime(0.0001, t);
+  og.gain.exponentialRampToValueAtTime(0.08, t + 0.008);
+  og.gain.exponentialRampToValueAtTime(0.0001, t + 0.13);
+  o.connect(og); og.connect(c.destination); o.start(t); o.stop(t + 0.15);
+}
+
+function burst(li){
+  if(!li || !li.animate) return;
+  var host = $("fx"); if(!host) return;
+  var r = li.getBoundingClientRect(), hr = host.getBoundingClientRect();
+  for(var i=0;i<20;i++){
+    var f = document.createElement("i");
+    f.className = "frag";
+    var w = 6 + Math.random() * 16, h = 3 + Math.random() * 4;
+    f.style.left = (r.left - hr.left + Math.random() * Math.max(8, r.width - w)) + "px";
+    f.style.top = (r.top - hr.top + r.height * (0.15 + Math.random() * 0.7)) + "px";
+    f.style.width = w.toFixed(1) + "px";
+    f.style.height = h.toFixed(1) + "px";
+    if(i % 3 === 0) f.style.background = "#f4f1e8";
+    if(i % 5 === 0) f.style.background = "#e6ecf7";
+    host.appendChild(f);
+    var dx = (Math.random() - 0.5) * 300;
+    var dy = -30 - Math.random() * 110;
+    var rot = (Math.random() - 0.5) * 1000;
+    var dur = 620 + Math.random() * 320;
+    f.animate([
+      { transform: "translate(0,0) rotate(0deg)", opacity: 1 },
+      { transform: "translate(" + (dx * 0.5) + "px," + (dy * 0.55) + "px) rotate(" + (rot * 0.45) + "deg)",
+        opacity: 1, offset: 0.45 },
+      { transform: "translate(" + dx + "px," + (dy + 200 + Math.random() * 160) + "px) rotate(" + rot + "deg)",
+        opacity: 0 }
+    ], { duration: dur, easing: "cubic-bezier(.2,.55,.4,1)", fill: "forwards" });
+    (function(el, ms){ setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, ms + 140); })(f, dur);
+  }
+}
+
+function shred(li, id){
+  buzz([6,24,10]); trash(); burst(li);
+  if(li) li.classList.add("shred");
+  S.pickId = null;
+  setTimeout(function(){ removeTask(id); }, 170);
+}
+
+/* ---------- 天气 ---------- */
+var WX = { data: null };
+var WMO = {
+  0:["晴","☀"],1:["晴间多云","🌤"],2:["多云","⛅"],3:["阴","☁"],
+  45:["雾","🌫"],48:["雾","🌫"],
+  51:["小雨","🌦"],53:["小雨","🌦"],55:["中雨","🌦"],
+  56:["冻雨","🌧"],57:["冻雨","🌧"],
+  61:["小雨","🌧"],63:["中雨","🌧"],65:["大雨","🌧"],
+  66:["冻雨","🌧"],67:["冻雨","🌧"],
+  71:["小雪","❄"],73:["中雪","❄"],75:["大雪","❄"],77:["米雪","❄"],
+  80:["阵雨","🌦"],81:["阵雨","🌧"],82:["暴雨","⛈"],
+  85:["阵雪","🌨"],86:["阵雪","🌨"],
+  95:["雷阵雨","⛈"],96:["雷暴冰雹","⛈"],99:["雷暴冰雹","⛈"]
+};
+function wmo(c){ return WMO[c] || ["", ""]; }
+function weatherText(k){
+  var d = WX.data; if(!d) return "";
+  if(k === today() && d.current){
+    var w = wmo(d.current.weather_code);
+    return w[1] + " " + w[0] + " " + Math.round(d.current.temperature_2m) + "°";
+  }
+  if(d.daily && d.daily.time){
+    var i = d.daily.time.indexOf(k);
+    if(i >= 0){
+      var w2 = wmo(d.daily.weather_code[i]);
+      return w2[1] + " " + w2[0] + " " + Math.round(d.daily.temperature_2m_min[i]) +
+        "~" + Math.round(d.daily.temperature_2m_max[i]) + "°";
+    }
+  }
+  return "";
+}
+function ipLoc(cb){
+  fetch("https://ipwho.is/").then(function(r){ return r.json(); }).then(function(d){
+    if(d && d.latitude && d.success !== false){
+      cb({ lat: d.latitude, lon: d.longitude, name: d.city || "" });
+      return;
+    }
+    throw 0;
+  }).catch(function(){
+    fetch("https://get.geojs.io/v1/ip/geo.json").then(function(r){ return r.json(); }).then(function(d2){
+      if(d2 && d2.latitude) cb({ lat: +d2.latitude, lon: +d2.longitude, name: d2.city || "" });
+      else cb(null);
+    }).catch(function(){ cb(null); });
+  });
+}
+function locate(cb){
+  var saved = null;
+  try{ saved = JSON.parse(localStorage.getItem("planner.geo") || "null"); }catch(e){}
+  function done(g){
+    if(g){ try{ localStorage.setItem("planner.geo", JSON.stringify(g)); }catch(e){} }
+    cb(g);
+  }
+  if(saved && saved.lat){ cb(saved); return; }
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(p){
+      done({ lat: p.coords.latitude, lon: p.coords.longitude });
+    }, function(){ ipLoc(done); }, { timeout: 6000, maximumAge: 1800000 });
+  } else ipLoc(done);
+}
+var wxTried = false;
+function loadWeather(force){
+  try{
+    var c = JSON.parse(localStorage.getItem("planner.wx") || "null");
+    if(!force && c && c.d && Date.now() - c.t < 20 * 60 * 1000){ WX.data = c.d; renderTitle(); return; }
+  }catch(e){}
+  WX.data = null;
+  locate(function(geo){
+    if(!geo){
+      if(!wxTried){ wxTried = true; toast("点日期下面的「设置城市」手动选一个"); }
+      return;
+    }
+    var url = "https://api.open-meteo.com/v1/forecast?latitude=" + encodeURIComponent(geo.lat) +
+      "&longitude=" + encodeURIComponent(geo.lon) +
+      "&current=temperature_2m,weather_code" +
+      "&daily=weather_code,temperature_2m_max,temperature_2m_min" +
+      "&timezone=auto&forecast_days=3";
+    fetch(url).then(function(r){ return r.json(); }).then(function(d){
+      if(!d || !d.current){
+        if(!wxTried){ wxTried = true; toast("天气获取失败，可点「设置城市」重试"); }
+        return;
+      }
+      WX.data = d;
+      try{ localStorage.setItem("planner.wx", JSON.stringify({ t: Date.now(), d: d })); }catch(e){}
+      if(geo.name) WX.city = geo.name;
+      renderTitle();
+    }).catch(function(){
+      if(!wxTried){ wxTried = true; toast("网络不通，稍后自动重试"); }
+      setTimeout(function(){ loadWeather(true); }, 20000);
+    });
+  });
+}
+
+/* ---------- 城市选择 ---------- */
+var CITIES = [
+  ["北京",39.9042,116.4074],["上海",31.2304,121.4737],["广州",23.1291,113.2644],["深圳",22.5431,114.0579],
+  ["杭州",30.2741,120.1551],["成都",30.5728,104.0668],["重庆",29.5630,106.5516],["西安",34.3416,108.9398],
+  ["武汉",30.5928,114.3055],["南京",32.0603,118.7969],["天津",39.3434,117.3616],["苏州",31.2989,120.5853],
+  ["长沙",28.2282,112.9388],["郑州",34.7466,113.6254],["青岛",36.0671,120.3826],["沈阳",41.8057,123.4315],
+  ["哈尔滨",45.8038,126.5349],["昆明",24.8801,102.8329],["厦门",24.4798,118.0894],["合肥",31.8206,117.2272],
+  ["济南",36.6512,117.1201],["福州",26.0745,119.2965],["南昌",28.6820,115.8579],["贵阳",26.6470,106.6302],
+  ["南宁",22.8170,108.3665],["太原",37.8706,112.5489],["石家庄",38.0428,114.5149],["兰州",36.0611,103.8343],
+  ["海口",20.0444,110.1999],["香港",22.3193,114.1694],["台北",25.0330,121.5654]
+];
+function chipsHtml(list, withGeo){
+  return (withGeo ? '<b class="geo" data-geo="1">使用当前定位</b>' : "") +
+    list.map(function(c){
+      return '<b data-lat="' + c[1] + '" data-lon="' + c[2] + '" data-n="' + esc(c[0]) + '">' + esc(c[0]) + '</b>';
+    }).join("");
+}
+function openCity(){
+  $("cityTitle").textContent = WX.city ? ("当前 · " + WX.city) : "选择城市";
+  $("cityInput").value = "";
+  $("cityList").innerHTML = chipsHtml(CITIES, true);
+  $("citySheet").classList.add("show");
+  buzz(8);
+}
+function closeCity(){ $("citySheet").classList.remove("show"); }
+function pickCity(g){
+  try{ localStorage.setItem("planner.geo", JSON.stringify(g)); }catch(e){}
+  try{ localStorage.removeItem("planner.wx"); }catch(e){}
+  WX.city = g.name || "";
+  closeCity(); renderTitle(); loadWeather(true);
+  toast(g.name ? ("已切换到 " + g.name) : "位置已更新");
+}
+function useLoc(){
+  try{ localStorage.removeItem("planner.geo"); }catch(e){}
+  try{ localStorage.removeItem("planner.wx"); }catch(e){}
+  closeCity(); renderTitle(); loadWeather(true);
+  toast("正在获取定位…");
+}
+$("cityClose").onclick = closeCity;
+$("citySheet").addEventListener("click", function(e){ if(e.target === this) closeCity(); });
+$("cityList").addEventListener("click", function(e){
+  var b = e.target.closest ? e.target.closest("b") : null;
+  if(!b) return;
+  buzz(8);
+  if(b.dataset.geo === "1"){ useLoc(); return; }
+  pickCity({ lat: +b.dataset.lat, lon: +b.dataset.lon, name: b.dataset.n });
+});
+var cityT = null;
+$("cityInput").addEventListener("input", function(){
+  var q = this.value.trim();
+  clearTimeout(cityT);
+  if(!q){ $("cityList").innerHTML = chipsHtml(CITIES, true); return; }
+  var hit = CITIES.filter(function(c){ return c[0].indexOf(q) >= 0; });
+  if(hit.length){ $("cityList").innerHTML = chipsHtml(hit, false); return; }
+  cityT = setTimeout(function(){
+    fetch("https://geocoding-api.open-meteo.com/v1/search?name=" + encodeURIComponent(q) +
+      "&count=8&language=zh&format=json")
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var arr = (d && d.results ? d.results : []).map(function(x){
+          return [x.name + (x.admin1 && x.admin1 !== x.name ? "·" + x.admin1 : ""), x.latitude, x.longitude];
+        });
+        $("cityList").innerHTML = arr.length ? chipsHtml(arr, false) : '<b>没找到，换个名字试试</b>';
+      }).catch(function(){});
+  }, 260);
+});
+
+/* ---------- 日历 ---------- */
+function monthKey(k){ return k.slice(0,7); }
+function daysOfMonth(mk){
+  var p = mk.split("-"), y = +p[0], m = +p[1];
+  return new Date(y, m, 0).getDate();
+}
+function renderCal(){
+  var mk = S.month, p = mk.split("-"), y = +p[0], m = +p[1];
+  $("calTitle").textContent = y + "年" + m + "月";
+
+  var total = 0, finished = 0, n = daysOfMonth(mk);
+  for(var d=1; d<=n; d++){
+    var items = list(mk + "-" + String(d).padStart(2,"0"));
+    total += items.length;
+    items.forEach(function(it){ if(it.done) finished++; });
+  }
+  $("mstat").textContent = total ? ("本月 " + finished + " / " + total + " 项已完成") : "本月暂无记录";
+
+  var first = new Date(y, m-1, 1).getDay();       // 0=周日
+  var tk = today(), html = "";
+  for(var i=0;i<first;i++) html += '<div class="cell out"></div>';
+  for(var dd=1; dd<=n; dd++){
+    var k = mk + "-" + String(dd).padStart(2,"0");
+    var items2 = list(k), doneN = 0;
+    items2.forEach(function(it){ if(it.done) doneN++; });
+    var cls = "cell" + (k === tk ? " today" : "") + (k === S.sel ? " sel" : "");
+    if(items2.length){
+      cls += " has" + (doneN === items2.length ? "" : " notdone");
+      html += '<div class="' + cls + '" data-d="' + k + '"><span class="n">' + dd + '</span><i class="' +
+        (doneN === items2.length ? "f" : (doneN ? "p" : "")) + '"></i></div>';
+    } else {
+      html += '<div class="' + cls + '" data-d="' + k + '"><span class="n">' + dd + '</span><i style="opacity:0"></i></div>';
+    }
+  }
+  $("grid").innerHTML = html;
+  renderDetail();
+}
+
+function renderDetail(){
+  var k = S.sel, items = list(k), doneN = 0;
+  items.forEach(function(it){ if(it.done) doneN++; });
+  var head = '<div class="dhead"><h3>' + label(k) + " · " + WD[toDate(k).getDay()] +
+    (rel(k) ? "（" + rel(k) + "）" : "") + '</h3><span>' +
+    (items.length ? "完成 " + doneN + " / " + items.length : "") + '</span></div>';
+  var body = items.length ? items.map(function(it){
+      return '<div class="ditem' + (it.done ? " f" : "") + '" data-id="' + it.id + '"><b></b><span>' +
+        esc(it.text) + '</span></div>';
+    }).join("") : '<div class="dempty">这一天没有安排</div>';
+  $("detail").innerHTML = head + body;
+}
+
+$("grid").addEventListener("click", function(e){
+  var c = e.target.closest ? e.target.closest(".cell") : null;
+  if(!c || !c.dataset.d) return;
+  S.sel = c.dataset.d; S.month = monthKey(S.sel);
+  buzz(8);
+  renderCal();
+});
+$("detail").addEventListener("click", function(e){
+  var el = e.target.closest ? e.target.closest(".ditem") : null;
+  if(!el || !el.dataset.id) return;
+  var items = list(S.sel);
+  for(var i=0;i<items.length;i++){
+    if(items[i].id !== el.dataset.id) continue;
+    if(items[i].done){ lockTap(el); return; }       /* 已完成：锁住 */
+    items[i].done = true; save();
+    chime(); buzz([12,40,24]); renderCal();
+    return;
+  }
+});
+$("calPrev").onclick = function(){ stepMonth(-1); };
+$("calNext").onclick = function(){ stepMonth(1); };
+function stepMonth(n){
+  var p = S.month.split("-"), d = new Date(+p[0], +p[1]-1+n, 1);
+  S.month = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0");
+  buzz(8); renderCal();
+}
+
+/* ---------- 页面切换 ---------- */
+$("openCal").onclick = function(){
+  S.pickId = null; renderList();
+  S.sel = S.date; S.month = monthKey(S.sel);
+  renderCal(); buzz(8);
+  document.body.classList.add("cal");
+};
+$("backBtn").onclick = function(){
+  buzz(8);
+  document.body.classList.remove("cal");
+};
+/* 在日历里选中任意日期（含未来）→ 回去写这一天的日程 */
+$("writeDay").onclick = function(){
+  document.body.classList.remove("cal");
+  gotoDay(S.sel);
+};
+
+/* ---------- 输入 ---------- */
+$("addForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  var v = $("inp").value;
+  if(!v.trim()) return;
+  S.pickId = null;
+  addTask(v); $("inp").value = "";
+  drop(); buzz(8);
+});
+
+/* ---------- 下一天 ---------- */
+function playEnter(){
+  var l = $("list"), t = $("title");
+  l.classList.remove("enter"); t.classList.remove("enter");
+  void l.offsetWidth; void t.offsetWidth;
+  l.classList.add("enter"); t.classList.add("enter");
+}
+function gotoDay(k){
+  S.date = k; S.pickId = null;
+  buzz(10); flip();
+  render(); playEnter();
+  $("list").scrollTop = 0;
+  toast("正在写 " + dayLabel(k));
+  try{ $("inp").focus(); }catch(e){}
+}
+$("tmrBtn").onclick = function(){ gotoDay(nextDayKey()); };
+
+/* ---------- 顶部日期切换 ---------- */
+$("prevDay").onclick = function(){ S.date = shift(S.date, -1); S.pickId = null; buzz(8); render(); };
+$("nextDay").onclick = function(){ S.date = shift(S.date, 1); S.pickId = null; buzz(8); render(); };
+
+/* ---------- 启动 ---------- */
+render();
+loadWeather();
+})();
+
+/* ---------- 离线支持 ---------- */
+if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./sw.js").catch(function () {});
+  });
+}
+</script>
+</body>
+</html>
